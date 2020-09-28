@@ -1,24 +1,55 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column                | Type    | Options        |
+| --------------------- | ------- | -------------- |
+| nickname              | string  | null: false    |
+| email                 | string  | null: false    |
+| password              | string  | null: false    |
+| password_confirmation | string  | null: false    |
+| introduction          | text    | null: false    |
+| admin                 | boolean | default: false |
 
-* Ruby version
+### Association
+-has_many :tweet
+-has_many :comments
 
-* System dependencies
+## cycle テーブル
 
-* Configuration
+| Column | Type   | Options     |
+| ------ | ------ | ----------- |
+| name   | string | null: false |
+| detail | text   | null: false |
+| price  | text   | null: false |
 
-* Database creation
+### Association
+-has_many :tweets
 
-* Database initialization
+## tweet テーブル
 
-* How to run the test suite
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| name    | string     | null: false                    |
+| detail  | text       | null: false                    |
+| area_id | integer    | null: false                    |
+| cycle   | references | null: false, foreign_key: true |
+| user    | references | null: false, foreign_key: true |
+| rate    | float      | null: false, default: 0        |
 
-* Services (job queues, cache servers, search engines, etc.)
+### Association
+-belongs_to :user
+-belongs_to :cycle
 
-* Deployment instructions
+## comment テーブル
 
-* ...
+| Column | Type       | Options                        |
+| ------ | -------    | ------------------------------ |
+| detail | string     | null: false                    |
+| user   | references | null: false, foreign_key: true |
+| tweet  | references | null: false, foreign_key: true |
+
+
+### Association
+-belongs_to :user
+-belongs_to :tweet
