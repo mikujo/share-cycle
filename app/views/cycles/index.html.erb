@@ -1,0 +1,29 @@
+<%= render "shared/header" %>
+<div class="search">
+</div>
+<div class="cycle-main">
+  <% @cycle.each do |cycle| %>
+          <li class='list'>
+            <%= link_to cycle_path(cycle.id) do %>
+            <div class='item-img-content'>
+              <%= image_tag cycle.image, class: "item-img" %>
+
+            </div>
+            <div class='item-info'>
+              <h3 class='item-name'>
+                <%= cycle.name %>
+              </h3>
+              <div class='item-price'>
+                <span><%= cycle.price %>円/1時間<br>(税込み)</span>
+                <div class='star-btn'>
+                  <%= image_tag "star.png", class:"star-icon" %>
+                  <span class='star-count'>0</span>
+                </div>
+              </div>
+            </div>
+            <% end %>
+          </li>
+        <% end %>
+</div>
+
+<%= render "shared/footer" %>
