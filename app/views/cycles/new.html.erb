@@ -1,10 +1,14 @@
 <div class="items-sell-contents">
   <header class="items-sell-header">
-    <%= link_to image_tag('share-cycle.jpg' , size: '185x50'), "/" %>
-
+  <%= link_to "/" do %>
+    <div class="title">
+      <div class="main">sharecling</div>
+      <div class="sub">〜移動に選択肢を〜</div>
+    </div>
+  <% end %>
   </header>
   <div class="items-sell-main">
-    <h2 class="items-sell-title">サービスの情報を入力</h2>
+    <h2 class="items-sell-title">サービス情報を入力</h2>
     <%= form_with model: @cycle, url: cycles_path, local: true do |f| %>
 
     <%= render 'shared/error_messages', model: f.object %>
@@ -12,7 +16,7 @@
     <%# 出品画像 %>
     <div class="img-upload">
       <div class="weight-bold-text">
-        出品画像
+        トップ画像
         <span class="indispensable">必須</span>
       </div>
       <div class="click-upload">
@@ -26,16 +30,16 @@
     <%# 商品名と商品説明 %>
     <div class="new-items">
       <div class="weight-bold-text">
-        商品名
+        サービス名
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
+      <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"サービス名を入力", maxlength:"40" %>
       <div class="items-explain">
         <div class="weight-bold-text">
-          商品の説明
+          サービスの詳細
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :detail, class:"items-text", id:"item-info", placeholder:"商品の説明（必須 1,000文字まで）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" ,rows:"7" ,maxlength:"1000" %>
+        <%= f.text_area :detail, class:"items-text", id:"item-info", placeholder:"サービスの説明（必須 1,000文字まで）（アピール、詳細の料金、スペック、注意点など）例）都内で一番拠点数の多いシェアサイクル！" ,rows:"7" ,maxlength:"1000" %>
       </div>
     </div>
     <%# /商品名と商品説明 %>
@@ -45,7 +49,7 @@
     <%# 販売価格 %>
     <div class="sell-price">
       <div class="weight-bold-text question-text">
-        <span>価格<br>(¥300〜9,999,999)</span>
+        <span>価格<br>(1時間利用した場合)</span>
       </div>
       <div>
         <div class="price-content">
@@ -53,7 +57,7 @@
             <span>価格</span>
             <span class="indispensable">必須</span>
           </div>
-          <span class="sell-yen">円/1時間</span>
+          <span class="sell-yen">¥</span>
           <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）300" %>
         </div>
       </div>
@@ -62,7 +66,7 @@
 
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
-      <%= f.submit "投稿する" ,class:"sell-btn" %>
+      <%= f.submit "サービスを登録する" ,class:"sell-btn" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
@@ -70,14 +74,11 @@
   <% end %>
 
   <footer class="items-sell-footer">
-    <ul class="menu">
-      <li><a href="#">プライバシーポリシー</a></li>
-      <li><a href="#">フリマ利用規約</a></li>
-      <li><a href="#">特定商取引に関する表記</a></li>
-    </ul>
-    <%= link_to image_tag('share-cycle.jpg' , size: '185x50'), "/" %>
-    <p class="inc">
-      ©︎Furima,Inc.
-    </p>
+  <%= link_to "/" do %>
+    <div class="title">
+      <div class="main">sharecling</div>
+      <div class="sub">〜移動に選択肢を〜</div>
+    </div>
+  <% end %>
   </footer>
 </div>
