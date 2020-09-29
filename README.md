@@ -17,11 +17,11 @@
 
 ## cycle テーブル
 
-| Column | Type   | Options     |
-| ------ | ------ | ----------- |
-| name   | string | null: false |
-| detail | text   | null: false |
-| price  | text   | null: false |
+| Column | Type    | Options     |
+| ------ | ------  | ----------- |
+| name   | string  | null: false |
+| detail | text    | null: false |
+| price  | integer | null: false |
 
 ### Association
 -has_many :tweets
