@@ -1,0 +1,84 @@
+<div class="items-sell-contents">
+  <header class="items-sell-header">
+  <%= link_to "/" do %>
+    <div class="title">
+      <div class="main">sharecling</div>
+      <div class="sub">〜移動に選択肢を〜</div>
+    </div>
+  <% end %>
+  </header>
+  <div class="items-sell-main">
+    <h2 class="items-sell-title">サービス情報を入力</h2>
+    <%= form_with model: @cycle, url: cycles_path, local: true do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+
+    <%# 出品画像 %>
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        トップ画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
+    </div>
+    <%# /出品画像 %>
+    <%# 商品名と商品説明 %>
+    <div class="new-items">
+      <div class="weight-bold-text">
+        サービス名
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"サービス名を入力", maxlength:"40" %>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          サービスの詳細
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :detail, class:"items-text", id:"item-info", placeholder:"サービスの説明（必須 1,000文字まで）（アピール、詳細の料金、スペック、注意点など）例）都内で一番拠点数の多いシェアサイクル！" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+    </div>
+    <%# /商品名と商品説明 %>
+
+
+
+    <%# 販売価格 %>
+    <div class="sell-price">
+      <div class="weight-bold-text question-text">
+        <span>価格<br>(1時間利用した場合)</span>
+      </div>
+      <div>
+        <div class="price-content">
+          <div class="price-text">
+            <span>価格</span>
+            <span class="indispensable">必須</span>
+          </div>
+          <span class="sell-yen">¥</span>
+          <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）300" %>
+        </div>
+      </div>
+    </div>
+    <%# /販売価格 %>
+
+    <%# 下部ボタン %>
+    <div class="sell-btn-contents">
+      <%= f.submit "サービスを登録する" ,class:"sell-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
+  </div>
+  <% end %>
+
+  <footer class="items-sell-footer">
+  <%= link_to "/" do %>
+    <div class="title">
+      <div class="main">sharecling</div>
+      <div class="sub">〜移動に選択肢を〜</div>
+    </div>
+  <% end %>
+  </footer>
+</div>
