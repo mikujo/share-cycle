@@ -1,30 +1,32 @@
-<div class='footer'>
-  <div class='footer-contents'>
-    <div class='furima-details'>
-      <h2 class='footer-content-head'>FURIMAについて</h2>
-      <ul>
-        <li><%= link_to '会社概要（運営会社)', "#", class: "footer-link" %></li>
-        <li><%= link_to 'プライバシーポリシー', "#", class: "footer-link" %></li>
-        <li><%= link_to 'FURIMA利用規約', "#", class: "footer-link" %></li>
-        <li><%= link_to 'ポイントに関する特約', "#", class: "footer-link" %></li>
-      </ul>
-    </div>
-    <div class='furima-details'>
-      <h2 class='footer-content-head'>FURIMAを見る</h2>
-      <ul>
-        <li><%= link_to 'カテゴリー一覧', "#", class: "footer-link" %></li>
-        <li><%= link_to 'ブランド一覧', "#", class: "footer-link" %></li>
-      </ul>
-    </div>
-    <div class='furima-details'>
-      <h2 class='footer-content-head'>FURIMAについて</h2>
-      <ul>
-        <li><%= link_to 'FURIMAガイド', "#", class: "footer-link" %></li>
-        <li><%= link_to 'FURIMAロゴ利用ガイドライン', "#", class: "footer-link" %></li>
-        <li><%= link_to 'お知らせ', "#", class: "footer-link" %></li>
-      </ul>
+<div class="footer">
+  <div class="footer-wrap">
+    <ul class="language-list">
+      <li class="language-title">言語 ：</li>
+      <li><%= link_to 'English', "#", class: "footer-link" %></li>
+      <li><%= link_to '简体中文', "#", class: "footer-link" %></li>
+      <li><%= link_to '繁体中文', "#", class: "footer-link" %></li>
+      <li><%= link_to '한국어', "#", class: "footer-link" %></li>
+    </ul>
+    <div class="footer-wrap-bottom">
+      <div class="footer-icon">
+        <%= link_to root_path, class:"footer-title" do %>
+          <div>sharecling</div>
+          <div class="header-sub-title">〜移動に選択肢を〜</div>
+        <% end %>
+      </div>
+      <div class="sitemap">
+        <ul class="sitemap-link">
+          <li>
+            <%= link_to 'プライバシーポリシー', "#", class: "footer-link" %>
+          </li>
+          <li>
+            <%= link_to 'お問い合わせ', "mailto:s83.mikusa.jo@gmail.com", class: "footer-link" %>
+          </li>
+        </ul>
+      </div>
+      <div class="copylight">
+        <span>Copyright ©︎ 2020 jo_mikusa All Rights Reserved.</span>
+      </div>
     </div>
   </div>
-  <%= link_to image_tag("share-cycle.jpg", class:"logo-white"), "#" %>
-  <p>© FURIMA</p>
 </div>
