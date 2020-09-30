@@ -1,0 +1,43 @@
+.cycle-main{
+  height: 1000px;
+  display: flex;
+  background-color: #e6e6e6;
+}
+
+.left-side-content{
+  width: 80vw;
+  border-right: solid 1px lightgray;
+}
+
+.right-side-content{
+  width: 20vw;
+}
+
+.top-content{
+  height: 120px;
+  border-bottom: solid 1px lightgray;
+  margin-bottom: 20px;
+}
+
+.cycle-content{
+  display: flex;
+  justify-content: space-around;
+}
+
+li{
+  list-style: none;
+}
+
+
+
+
+.user-info-container{
+  margin: 20px;
+  padding: 16px;
+  background-color: oldlace;
+}
+
+.top-container{
+  border: 1px solid lightgray;
+  background-color: white;
+}

@@ -1,29 +1,75 @@
 <%= render "shared/header" %>
-<div class="search">
-</div>
-<div class="cycle-main">
-  <% @cycle.each do |cycle| %>
-          <li class='list'>
-            <%= link_to cycle_path(cycle.id) do %>
-            <div class='item-img-content'>
-              <%= image_tag cycle.image, class: "item-img" %>
 
+<div class="cycle-main">
+  <div class="left-side-content">
+    <div class="top-content">
+      サービス一覧
+      気になるサービスをクリック！
+    </div>
+    <ul class="cycle-content">
+    <% @cycle.each do |cycle| %>
+      <li class='list'>
+        <%= link_to cycle_path(cycle.id) do %>
+          <div class='cycle-img-content'>
+            <%= image_tag cycle.image.variant(resize:'250x250'), class: "cycle-img" %>
+          </div>
+          <div class='cycle-info'>
+            <h3 class='cycle-name'>
+              <%= cycle.name %>
+            </h3>
+            <div class="cycle-detail">
+              <span><%= cycle.detail %></span>
             </div>
-            <div class='item-info'>
-              <h3 class='item-name'>
-                <%= cycle.name %>
-              </h3>
-              <div class='item-price'>
-                <span><%= cycle.price %>円/1時間<br>(税込み)</span>
-                <div class='star-btn'>
-                  <%= image_tag "star.png", class:"star-icon" %>
-                  <span class='star-count'>0</span>
-                </div>
+            <div class='cycle-price'>
+              <span><%= cycle.price %>円/1時間<br>(税込み)</span>
+              <div class='star-btn'>
+                <%= image_tag "star.png", class:"star-icon" %>
+                <span class='star-count'>0</span>
               </div>
             </div>
-            <% end %>
-          </li>
+          </div>
         <% end %>
+      </li>
+    <% end %>
+  </div>
+  <div class="right-side-content">
+    
+    <% if user_signed_in? %>
+      <ul class='lists-right'>
+        <li><%= link_to current_user.nickname, edit_user_registration_path, class: "user-nickname" %></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+      </ul>
+    <% else %>
+      <div class="user-info-container">
+        <div class="top-container">
+          <h2>ログイン</h2>
+          <div class="explain-login">
+            <span>ログインすると、レビューやコメントの投稿ができるようになります。</span>
+          </div>
+          <div class="sign-up-box">
+            <%= link_to 'ログイン', new_user_session_path, class: "login" %>
+          </div>
+        </div>
+      </div>
+      <div class="user-info-container">
+        <div class="top-container">
+          <h2>新規会員登録</h2>
+          <div class="explain-login">
+            <span>会員登録がまだの方はこちらから！</span>
+          </div>
+          <div class="sign-up-box">
+            <%= link_to '新規登録', new_user_registration_path, class: "sign-up" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+   
+    
+    
+
+    
+
+  </div>
 </div>
 
 <%= render "shared/footer" %>
