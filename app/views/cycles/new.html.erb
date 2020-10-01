@@ -1,12 +1,6 @@
+<%= render "shared/second-header"%>
+
 <div class="items-sell-contents">
-  <header class="items-sell-header">
-  <%= link_to "/" do %>
-    <div class="title">
-      <div class="main">sharecling</div>
-      <div class="sub">〜移動に選択肢を〜</div>
-    </div>
-  <% end %>
-  </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">サービス情報を入力</h2>
     <%= form_with model: @cycle, url: cycles_path, local: true do |f| %>
@@ -72,13 +66,6 @@
     <%# /下部ボタン %>
   </div>
   <% end %>
-
-  <footer class="items-sell-footer">
-  <%= link_to "/" do %>
-    <div class="title">
-      <div class="main">sharecling</div>
-      <div class="sub">〜移動に選択肢を〜</div>
-    </div>
-  <% end %>
-  </footer>
 </div>
+
+<%= render "shared/footer"%>

@@ -1,74 +1,85 @@
 <%= render "shared/header" %>
 
 <div class="cycle-main">
-  <div class="left-side-content">
-    <div class="top-content">
-      サービス一覧
-      気になるサービスをクリック！
+  <div class="left-side">
+    <div class='search-bar-contents'>
+      <form class="search-form" action="#">
+        <input class='input-box' placeholder='キーワードから探す'>
+        <button class="search-button">
+          <%= image_tag "search.png", class:"search-icon" %>
+        </button>
+      </form>
     </div>
-    <ul class="cycle-content">
-    <% @cycle.each do |cycle| %>
-      <li class='list'>
-        <%= link_to cycle_path(cycle.id) do %>
-          <div class='cycle-img-content'>
-            <%= image_tag cycle.image.variant(resize:'250x250'), class: "cycle-img" %>
-          </div>
-          <div class='cycle-info'>
-            <h3 class='cycle-name'>
-              <%= cycle.name %>
-            </h3>
-            <div class="cycle-detail">
-              <span><%= cycle.detail %></span>
-            </div>
-            <div class='cycle-price'>
-              <span><%= cycle.price %>円/1時間<br>(税込み)</span>
-              <div class='star-btn'>
-                <%= image_tag "star.png", class:"star-icon" %>
-                <span class='star-count'>0</span>
+    <div class="top-content">
+      <div class="text">現代はwithコロナの時代</div>
+      <div class="text">遊びに行きたくても満員電車は怖い。</div>
+      <div class="text">そんなあなたの移動に新たな選択肢はいかがですか？</div>
+      <div class="text">シェアサイクルは文字どおり自転車をほかの人と「シェア＝共有」するサービスです。</div>
+      <div class="text">混雑無縁で移動も楽々。安全かつ開放的に移動を楽しめる。</div>
+      <div class="text-bottom">自転車も「所有」から「共有」へ</div>
+    </div>
+    <div class='cycle-contents'>
+      <div class="cycle-title">
+        <h2>サービス一覧</h2>
+        <h3 class="cycle-sub">画像をクリックで詳細ページへ</h3>
+      </div>
+      <ul class="cycle-lists">
+        <% @cycle.each do |cycle| %>
+          <li class='cycle-list'>
+              <div class='cycle-img-content'>
+                <%= link_to cycle_path(cycle.id) do %>
+                  <%= image_tag cycle.image, class: "cycle-img" %>
+                <% end %>
               </div>
-            </div>
-          </div>
+              <div class='cycle-info'>
+                <h3 class='cycle-name'>
+                  <%= cycle.name %>
+                </h3>
+                <div class="cycle-detail">
+                  <span><%= cycle.detail %></span>
+                </div>
+                <div class='cycle-price'>
+                  <span> 利用料(1時間あたり)： <%= cycle.price %> 円 </span>
+                </div>
+                <div class='star-btn'>
+                  <%= 5.times do %>
+                    <%= image_tag "star.png", class:"star-icon" %>
+                  <% end %>
+                  <span class='star-count'>.0</span>
+                </div>
+              </div>
+          </li>
         <% end %>
-      </li>
-    <% end %>
-  </div>
-  <div class="right-side-content">
-    
-    <% if user_signed_in? %>
-      <ul class='lists-right'>
-        <li><%= link_to current_user.nickname, edit_user_registration_path, class: "user-nickname" %></li>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
       </ul>
-    <% else %>
-      <div class="user-info-container">
-        <div class="top-container">
-          <h2>ログイン</h2>
-          <div class="explain-login">
-            <span>ログインすると、レビューやコメントの投稿ができるようになります。</span>
-          </div>
-          <div class="sign-up-box">
-            <%= link_to 'ログイン', new_user_session_path, class: "login" %>
-          </div>
-        </div>
-      </div>
-      <div class="user-info-container">
-        <div class="top-container">
-          <h2>新規会員登録</h2>
-          <div class="explain-login">
-            <span>会員登録がまだの方はこちらから！</span>
-          </div>
-          <div class="sign-up-box">
-            <%= link_to '新規登録', new_user_registration_path, class: "sign-up" %>
-          </div>
+    </div>
+  </div>
+  <div class="right-side">
+    <% if user_signed_in? %>
+      <div class="right-side-content">
+        <div class="cycle-link">
+          <%= link_to edit_user_registration_path, class: "cycle-new" do %>
+            <div class="cycle-new-title">ようこそ<br><%= current_user.nickname %>さん</div>
+            <div class="cycle-new-sub">こちらから登録情報の編集ができます。</div>
+          <% end %>
         </div>
       </div>
     <% end %>
-   
-    
-    
-
-    
-
+    <div class="right-side-content">
+      <div class="cycle-link">
+        <%= link_to new_cycle_path, class: "cycle-new" do %>
+          <div class="cycle-new-title">サービス新規投稿</div>
+          <div class="cycle-new-sub">こちらからサービスの投稿ができます。</div>
+        <% end %>
+      </div>
+    </div>
+    <div class="right-side-content">
+      <div class="cycle-link">
+        <%= link_to "#", class: "cycle-new" do %>
+          <div class="cycle-new-title">ゲストユーザーログイン</div>
+          <div class="cycle-new-sub">会員登録不要でご利用いただけます。</div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
 
