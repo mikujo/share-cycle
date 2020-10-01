@@ -13,7 +13,6 @@
   background-position: right bottom;
   background-size: cover;
   opacity: 0.8;
-
 }
 
 .header-top-content{
@@ -76,6 +75,26 @@
   color: whitesmoke;
 }
 
+.header-center{
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: whitesmoke;
+  font-family: 'YuGothic','Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', 'Meiryo','ＭＳ ゴシック',sans-serif;
+}
+
+.header-center-top{
+  font-size: 18px;
+  color: whitesmoke;
+}
+
+.header-center-bottom{
+  font-size: 40px;
+  color: whitesmoke;
+}
+
 .search-bar-contents {
   display: flex;
   justify-content: space-between;
@@ -105,24 +124,4 @@
 
 .search-icon {
   width: 100%;
-}
-
-.header-center{
-  padding-top: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  color: whitesmoke;
-  font-family: 'YuGothic','Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', 'Meiryo','ＭＳ ゴシック',sans-serif;
-}
-
-.header-center-top{
-  font-size: 18px;
-  color: whitesmoke;
-}
-
-.header-center-bottom{
-  font-size: 40px;
-  color: whitesmoke;
 }

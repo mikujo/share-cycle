@@ -1,6 +1,6 @@
 .footer {
   width: 100vw;
-  padding: 5vh 0;
+  padding: 5vh 0 0 0;
   color: #FFF;
   background-color: #e6e6e6;
   text-align: center;
@@ -10,12 +10,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: violet;
 }
 
 .language-list{
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  padding-bottom: 20px;
 }
 
 .language-title{
@@ -26,7 +28,34 @@
 }
 
 .footer-wrap-bottom{
-  background-color: tomato;
+  border-top: 1px solid lightgray;
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-title {
+  font-size: 30px;
+  text-decoration: none;
+  color:#4b4b4b;
+  font-family: 'YuGothic','Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', 'Meiryo','ＭＳ ゴシック',sans-serif;
+}
+
+.footer-sub-title{
+  font-size: 13px;
+  padding-left: 15px;
+  font-family: 'YuGothic','Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', 'Meiryo','ＭＳ ゴシック',sans-serif;
+}
+
+.sitemap{
+  display: flex;
+  justify-content: space-between;
+}
+
+.copylight{
+  font-size: 10px;
+  color:#4b4b4b;
 }
 
 .footer-link {
@@ -34,4 +63,5 @@
   font-size: 12px;
   line-height: 30px;
   margin-right: 15px;
+  text-decoration: none;
 }
