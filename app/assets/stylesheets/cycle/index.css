@@ -4,12 +4,12 @@
   background-color: white;
 }
 
-.left-side-content{
+.left-side{
   width: 80vw;
   border-right: solid 1px lightgray;
 }
 
-.right-side-content{
+.right-side{
   width: 20vw;
 }
 
@@ -28,16 +28,37 @@ li{
   list-style: none;
 }
 
-
-
-
-.user-info-container{
-  margin: 20px;
-  padding: 16px;
-  background-color: oldlace;
+.right-side-content{
+  margin: 20px 30px;
+  padding: 10px;
+  background-color: #e6e6e6;
 }
 
-.top-container{
-  border: 1px solid lightgray;
+.cycle-link{
   background-color: white;
+  border: 1px solid lightgray;
+
+}
+
+.cycle-new{
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cycle-new-title{
+  padding-top: 10px;
+  color:#4b4b4b;
+}
+
+.cycle-new-sub{
+  margin: 15px 0 10px;
+  font-size: 10px;
+  color: gray;
+}
+
+.test{
+  background-color: violet;
 }

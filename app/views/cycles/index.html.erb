@@ -1,7 +1,7 @@
 <%= render "shared/header" %>
 
 <div class="cycle-main">
-  <div class="left-side-content">
+  <div class="left-side">
     <div class="top-content">
       サービス一覧
       気になるサービスをクリック！
@@ -32,43 +32,23 @@
       </li>
     <% end %>
   </div>
-  <div class="right-side-content">
-    
-    <% if user_signed_in? %>
-      <ul class='lists-right'>
-        <li><%= link_to current_user.nickname, edit_user_registration_path, class: "user-nickname" %></li>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
-      </ul>
-    <% else %>
-      <div class="user-info-container">
-        <div class="top-container">
-          <h2>ログイン</h2>
-          <div class="explain-login">
-            <span>ログインすると、レビューやコメントの投稿ができるようになります。</span>
-          </div>
-          <div class="sign-up-box">
-            <%= link_to 'ログイン', new_user_session_path, class: "login" %>
-          </div>
-        </div>
+  <div class="right-side">
+    <div class="right-side-content">
+      <div class="cycle-link">
+        <%= link_to new_cycle_path, class: "cycle-new" do %>
+          <div class="cycle-new-title">サービス新規投稿</div>
+          <div class="cycle-new-sub">こちらからサービスの投稿ができます。</div>
+        <% end %>
       </div>
-      <div class="user-info-container">
-        <div class="top-container">
-          <h2>新規会員登録</h2>
-          <div class="explain-login">
-            <span>会員登録がまだの方はこちらから！</span>
-          </div>
-          <div class="sign-up-box">
-            <%= link_to '新規登録', new_user_registration_path, class: "sign-up" %>
-          </div>
-        </div>
+    </div>
+    <div class="right-side-content">
+      <div class="cycle-link">
+        <%= link_to "#", class: "cycle-new" do %>
+          <div class="cycle-new-title">ゲストユーザーログイン</div>
+          <div class="cycle-new-sub">会員登録不要でご利用いただけます。</div>
+        <% end %>
       </div>
-    <% end %>
-   
-    
-    
-
-    
-
+    </div>
   </div>
 </div>
 
