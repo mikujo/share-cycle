@@ -26,28 +26,28 @@
       <ul class="cycle-lists">
         <% @cycle.each do |cycle| %>
           <li class='cycle-list'>
-              <div class='cycle-img-content'>
-                <%= link_to cycle_path(cycle.id) do %>
-                  <%= image_tag cycle.image, class: "cycle-img" %>
+            <div class='cycle-img-content'>
+              <%= link_to cycle_path(cycle.id) do %>
+                <%= image_tag cycle.image, class: "cycle-img" %>
+              <% end %>
+            </div>
+            <div class='cycle-info'>
+              <h3 class='cycle-name'>
+                <%= cycle.name %>
+              </h3>
+              <div class="cycle-detail">
+                <span><%= cycle.detail %></span>
+              </div>
+              <div class='cycle-price'>
+                <span> 利用料(1時間あたり)： <%= cycle.price %> 円 </span>
+              </div>
+              <div class='star-btn'>
+                <%= 5.times do %>
+                  <%= image_tag "star.png", class:"star-icon" %>
                 <% end %>
+                <span class='star-count'>.0</span>
               </div>
-              <div class='cycle-info'>
-                <h3 class='cycle-name'>
-                  <%= cycle.name %>
-                </h3>
-                <div class="cycle-detail">
-                  <span><%= cycle.detail %></span>
-                </div>
-                <div class='cycle-price'>
-                  <span> 利用料(1時間あたり)： <%= cycle.price %> 円 </span>
-                </div>
-                <div class='star-btn'>
-                  <%= 5.times do %>
-                    <%= image_tag "star.png", class:"star-icon" %>
-                  <% end %>
-                  <span class='star-count'>.0</span>
-                </div>
-              </div>
+            </div>
           </li>
         <% end %>
       </ul>
@@ -66,17 +66,17 @@
     <% end %>
     <div class="right-side-content">
       <div class="cycle-link">
-        <%= link_to new_cycle_path, class: "cycle-new" do %>
-          <div class="cycle-new-title">サービス新規投稿</div>
-          <div class="cycle-new-sub">こちらからサービスの投稿ができます。</div>
+        <%= link_to "#", class: "cycle-new" do %>
+          <div class="cycle-new-title">ゲストユーザーログイン</div>
+          <div class="cycle-new-sub">会員登録不要でご利用いただけます。</div>
         <% end %>
       </div>
     </div>
     <div class="right-side-content">
       <div class="cycle-link">
-        <%= link_to "#", class: "cycle-new" do %>
-          <div class="cycle-new-title">ゲストユーザーログイン</div>
-          <div class="cycle-new-sub">会員登録不要でご利用いただけます。</div>
+        <%= link_to new_cycle_path, class: "cycle-new" do %>
+          <div class="cycle-new-title">サービス新規投稿</div>
+          <div class="cycle-new-sub">こちらからサービスの投稿ができます。</div>
         <% end %>
       </div>
     </div>
