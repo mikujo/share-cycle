@@ -1,8 +1,10 @@
 .bottom-content{
   background-color: lightcoral;
   height: 1000px;
+  width: 100%;
   display: flex;
   padding: 15px;
+  
 }
 
 .cycle-area {
@@ -60,7 +62,7 @@
 
 .review-area{
   background-color: lightgreen;
-  width: 60%;
+  width: 59%;
   height: 200px;
-  margin: 0 10px;
+  margin-left: 10px;
 }
