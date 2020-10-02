@@ -1,0 +1,66 @@
+.bottom-content{
+  background-color: lightcoral;
+  height: 1000px;
+  display: flex;
+  padding: 15px;
+}
+
+.cycle-area {
+  width: 40%;
+  height: 280px;
+  border: solid 1px lightgray;
+  display: flex;
+  background-color: lightyellow;
+}
+
+.cycle-img-content {
+  width: 200px;
+  height: 200px;
+}
+
+.cycle-img {
+  width: 100%;
+  height: 100%;
+}
+
+.cycle-info {
+  width: 50%;
+  color: #4b4b4b;
+  font-family: 'YuGothic','Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', 'Meiryo','ＭＳ ゴシック',sans-serif;
+  padding: 5px;
+  margin-left: 15px;
+}
+
+.cycle-detail{
+ height: 60%;
+ font-size: 12px;
+ margin-bottom: 5px;
+ color: gray;
+}
+
+.cycle-price {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.star-btn {
+  display: flex;
+  align-items: center;
+}
+
+.star-icon {
+  height: 15px;
+  width: 15px;
+  margin-right: 5px;
+}
+
+.star-count {
+  font-size: 15px;
+}
+
+.review-area{
+  background-color: lightgreen;
+  width: 60%;
+  height: 200px;
+  margin: 0 10px;
+}

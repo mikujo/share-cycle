@@ -16,6 +16,10 @@ class CyclesController < ApplicationController
     end
   end
 
+  def show
+    @cycle = Cycle.find(params[:id])
+  end
+
   private
 
   def cycle_params
