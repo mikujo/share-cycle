@@ -1,4 +1,6 @@
 class CyclesController < ApplicationController
+  before_action :set_cycle, only: [:show, :edit, :update, :destroy]
+
   def index
     @cycle = Cycle.all
   end
@@ -17,6 +19,20 @@ class CyclesController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @cycle.update(cycle_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
+  def set_cycle
     @cycle = Cycle.find(params[:id])
   end
 
