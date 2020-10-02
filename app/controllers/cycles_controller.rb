@@ -32,6 +32,14 @@ class CyclesController < ApplicationController
     end
   end
 
+  def destroy
+    if @cycle.destroy
+      redirect_to root_path
+    else
+      render :show
+    end
+  end
+
   def set_cycle
     @cycle = Cycle.find(params[:id])
   end
