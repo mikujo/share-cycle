@@ -1,4 +1,6 @@
 class CyclesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :user_admin, only: [:new, :edit, :destroy]
   before_action :set_cycle, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -38,6 +40,10 @@ class CyclesController < ApplicationController
     else
       render :show
     end
+  end
+
+  def user_admin
+    redirect_to root_path unless current_user.admin == true
   end
 
   def set_cycle

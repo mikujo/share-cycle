@@ -8,11 +8,10 @@
 | email                 | string  | null: false    |
 | password              | string  | null: false    |
 | password_confirmation | string  | null: false    |
-| introduction          | text    | null: false    |
 | admin                 | boolean | default: false |
 
 ### Association
--has_many :tweet
+-has_many :reviews
 -has_many :comments
 
 ## cycle テーブル
@@ -24,9 +23,9 @@
 | price  | integer | null: false |
 
 ### Association
--has_many :tweets
+-has_many :reviews
 
-## tweet テーブル
+## review テーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
@@ -47,9 +46,9 @@
 | ------ | -------    | ------------------------------ |
 | detail | string     | null: false                    |
 | user   | references | null: false, foreign_key: true |
-| tweet  | references | null: false, foreign_key: true |
+| review | references | null: false, foreign_key: true |
 
 
 ### Association
 -belongs_to :user
--belongs_to :tweet
+-belongs_to :review

@@ -63,23 +63,26 @@
           <% end %>
         </div>
       </div>
+      <% if current_user.admin? %>
+        <div class="right-side-content">
+          <div class="cycle-link">
+            <%= link_to new_cycle_path, class: "cycle-new" do %>
+              <div class="cycle-new-title">サービス新規投稿</div>
+              <div class="cycle-new-sub">こちらからサービスの投稿ができます。</div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="right-side-content">
+        <div class="cycle-link">
+          <%= link_to "#", class: "cycle-new" do %>
+            <div class="cycle-new-title">ゲストユーザーログイン</div>
+            <div class="cycle-new-sub">会員登録不要でご利用いただけます。</div>
+          <% end %>
+        </div>
+      </div>
     <% end %>
-    <div class="right-side-content">
-      <div class="cycle-link">
-        <%= link_to "#", class: "cycle-new" do %>
-          <div class="cycle-new-title">ゲストユーザーログイン</div>
-          <div class="cycle-new-sub">会員登録不要でご利用いただけます。</div>
-        <% end %>
-      </div>
-    </div>
-    <div class="right-side-content">
-      <div class="cycle-link">
-        <%= link_to new_cycle_path, class: "cycle-new" do %>
-          <div class="cycle-new-title">サービス新規投稿</div>
-          <div class="cycle-new-sub">こちらからサービスの投稿ができます。</div>
-        <% end %>
-      </div>
-    </div>
   </div>
 </div>
 
