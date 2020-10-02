@@ -63,7 +63,7 @@
           <% end %>
         </div>
       </div>
-      <% if current_user.admin == true %>
+      <% if current_user.admin? %>
         <div class="right-side-content">
           <div class="cycle-link">
             <%= link_to new_cycle_path, class: "cycle-new" do %>
