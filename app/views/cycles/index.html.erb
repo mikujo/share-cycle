@@ -57,7 +57,7 @@
     <% if user_signed_in? %>
       <div class="right-side-content">
         <div class="cycle-link">
-          <%= link_to edit_user_registration_path, class: "cycle-new" do %>
+          <%= link_to edit_user_registration_path(current_user), class: "cycle-new" do %>
             <div class="cycle-new-title">ようこそ<br><%= current_user.nickname %>さん</div>
             <div class="cycle-new-sub">こちらから登録情報の編集ができます。</div>
           <% end %>
