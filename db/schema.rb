@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2020_10_05_063647) do
     t.string "title", null: false
     t.text "detail", null: false
     t.integer "area_id", null: false
-    t.float "rate", default: 3.0, null: false
+    t.float "rate", default: 0.0, null: false
     t.bigint "user_id", null: false
     t.bigint "cycle_id", null: false
     t.datetime "created_at", precision: 6, null: false
