@@ -3,51 +3,37 @@
 <div class="items-sell-contents">
   <div class="items-sell-main">
     <h2 class="items-sell-title">サービス情報を入力</h2>
-    <%= form_with model: @review, url: reviews_path, local: true do |f| %>
+    <%= form_with model: @review, url:  cycle_reviews_path, local: true do |f| %>
 
     <%= render 'shared/error_messages', model: f.object %>
 
-    <div class="img-upload">
-      <div class="weight-bold-text">
-        トップ画像
-        <span class="indispensable">必須</span>
-      </div>
-      <div class="click-upload">
-        <p>
-          クリックしてファイルをアップロード
-        </p>
-        <%= f.file_field :image, id:"item-image" %>
-      </div>
-    </div>
+    
     <div class="new-items">
       <div class="weight-bold-text">
-        サービス名
+        タイトル
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"サービス名を入力", maxlength:"40" %>
+      <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"サービス名を入力", maxlength:"40" %>
       <div class="items-explain">
         <div class="weight-bold-text">
-          サービスの詳細
+          レビュー内容
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :detail, class:"items-text", id:"item-info", placeholder:"サービスの説明（必須 1,000文字まで）（アピール、詳細の料金、スペック、注意点など）例）都内で一番拠点数の多いシェアサイクル！" ,rows:"7" ,maxlength:"1000" %>
+        <%= f.text_area :detail, class:"items-text", id:"item-info", placeholder:"実際にご利用いただいたご感想をご入力ください。（必須 1,000文字まで）例)簡単に利用できて感動しました。目的地まで気持ちよく移動ができて楽しかった！" ,rows:"7" ,maxlength:"1000" %>
       </div>
+      <div class="weight-bold-text">
+        利用した地域
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.collection_select(:area_id, Area.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+      <div class="weight-bold-text">
+        評価
+        <span class="indispensable">必須</span>
+      </div>
+      
     </div>
-    <div class="sell-price">
-      <div class="weight-bold-text question-text">
-        <span>価格<br>(1時間利用した場合)</span>
-      </div>
-      <div>
-        <div class="price-content">
-          <div class="price-text">
-            <span>価格</span>
-            <span class="indispensable">必須</span>
-          </div>
-          <span class="sell-yen">¥</span>
-          <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）300" %>
-        </div>
-      </div>
-    </div>
+    
+
     <div class="sell-btn-contents">
       <%= f.submit "サービスを登録する" ,class:"sell-btn" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
