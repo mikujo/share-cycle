@@ -21,6 +21,7 @@ class CyclesController < ApplicationController
   end
 
   def show
+    @review = Review.all
   end
 
   def edit

@@ -15,4 +15,6 @@ class User < ApplicationRecord
     validates :nickname
     validates :password, format: { with: /\A[a-zA-Z0-9]+\z/ }
   end
+
+  has_many :reviews
 end

@@ -1,0 +1,45 @@
+<%= render "shared/second-header"%>
+
+<div class="items-sell-contents">
+  <div class="items-sell-main">
+    <h2 class="items-sell-title">サービス情報を入力</h2>
+    <%= form_with model: @review, url:  cycle_reviews_path, local: true do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+
+    
+    <div class="new-items">
+      <div class="weight-bold-text">
+        タイトル
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"サービス名を入力", maxlength:"40" %>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          レビュー内容
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :detail, class:"items-text", id:"item-info", placeholder:"実際にご利用いただいたご感想をご入力ください。（必須 1,000文字まで）例)簡単に利用できて感動しました。目的地まで気持ちよく移動ができて楽しかった！" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+      <div class="weight-bold-text">
+        利用した地域
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.collection_select(:area_id, Area.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+      <div class="weight-bold-text">
+        評価
+        <span class="indispensable">必須</span>
+      </div>
+      
+    </div>
+    
+
+    <div class="sell-btn-contents">
+      <%= f.submit "サービスを登録する" ,class:"sell-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+<%= render "shared/footer"%>

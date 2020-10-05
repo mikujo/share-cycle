@@ -6,7 +6,7 @@
       <h2>ログイン</h2>
       <h5>登録しているユーザーでログイン</h5>
       <%= render "devise/shared/links"%>
-      <%# ゲストユーザー機能実装 %>
+      <%= link_to 'ゲストユーザーでログインする', user_guest_sign_in_path, method: :post %>
     </div>
     <div class='account-page__inner--right user-form'>
       <%= form_with model: resource, as: resource_name, url: session_path(resource_name), local: true do |f|%>

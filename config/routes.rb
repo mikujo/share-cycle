@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   end
   root to: "cycles#index"
   resources :users, only: [:edit, :update]
-  resources :cycles
+  resources :cycles do
+    resources :reviews, only: [:show, :new, :create, :edit, :update, :delete]
+  end
 end
