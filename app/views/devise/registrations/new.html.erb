@@ -5,8 +5,11 @@
     <div class='account-page__inner--left account-page__header'>
       <h2>アカウント作成</h2>
       <h5>新規アカウントの作成</h5>
+      <div class="account-link-tag">
+        <%= render "devise/shared/links"%>
+        <%= link_to 'ゲストユーザーでログインする', user_guest_sign_in_path, method: :post %>
+      </div>
     </div>
-
     <%# ゲストユーザー機能実装 %>
 
     <div class='account-page__inner--right user-form'>

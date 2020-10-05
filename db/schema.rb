@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_02_093812) do
+ActiveRecord::Schema.define(version: 2020_10_05_063647) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -41,6 +41,19 @@ ActiveRecord::Schema.define(version: 2020_10_02_093812) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "detail", null: false
+    t.integer "area_id", null: false
+    t.float "rate", default: 3.0, null: false
+    t.bigint "user_id", null: false
+    t.bigint "cycle_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cycle_id"], name: "index_reviews_on_cycle_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "email", default: "", null: false
@@ -56,4 +69,6 @@ ActiveRecord::Schema.define(version: 2020_10_02_093812) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "reviews", "cycles"
+  add_foreign_key "reviews", "users"
 end

@@ -29,12 +29,12 @@
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
-| name    | string     | null: false                    |
+| title   | string     | null: false                    |
 | detail  | text       | null: false                    |
 | area_id | integer    | null: false                    |
 | cycle   | references | null: false, foreign_key: true |
 | user    | references | null: false, foreign_key: true |
-| rate    | float      | null: false, default: 0        |
+| rate    | float      | null: false, default: 3        |
 
 ### Association
 -belongs_to :user
