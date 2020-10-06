@@ -5,15 +5,14 @@
     <div class='account-page__inner--left account-page__header'>
       <h2>アカウントの編集</h2>
       <h5>アカウント情報の編集</h5>
-        <div class="link-btn-area">
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'edit-link-btn'%>
-          <%= link_to "トップページに戻る", root_path, class: 'edit-link-btn'%>
-        </div>
-        <div class="link-space">
-          <div>アカウントの消去を希望する方はこちら</div>
-          <%= button_to "アカウント消去", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'edit-link-btn' %></p>
-        </div>
-
+      <div class="link-btn-area">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'edit-link-btn'%>
+        <%= link_to "トップページに戻る", root_path, class: 'edit-link-btn'%>
+      </div>
+      <div class="link-space">
+        <div>アカウントの消去を希望する方はこちら</div>
+        <%= button_to "アカウント消去", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'edit-link-btn' %></p>
+      </div>
     </div>
     <div class='account-page__inner--right user-form'>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
