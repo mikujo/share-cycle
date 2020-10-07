@@ -21,7 +21,8 @@ class CyclesController < ApplicationController
   end
 
   def show
-    @review = Review.all
+    reviews = Review.all
+    @review = @cycle.reviews.order('created_at DESC').limit(5)
   end
 
   def edit
