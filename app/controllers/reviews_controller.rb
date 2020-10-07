@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_cycle, only: [:new, :create, :show]
+  before_action :set_cycle, only: [:new, :create, :show, :edit, :update]
   before_action :set_review, only: [:show, :edit, :update, :destroy]
 
   def new
@@ -22,9 +22,19 @@ class ReviewsController < ApplicationController
   end
 
   def update
+    if @review.update(review_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def destroy
+    if @review.destroy
+      redirect_to root_path
+    else
+      render :show
+    end
   end
 
   def set_cycle
@@ -32,7 +42,7 @@ class ReviewsController < ApplicationController
   end
 
   def set_review
-    @review = Review.find(params[:review_id])
+    @review = Review.find(params[:id])
   end
 
   private
