@@ -1,0 +1,37 @@
+.review-show-list{
+  width: 70%;
+  margin: 100px 0;
+  border: 1px solid lightgray;
+  padding: 10px;
+  color: #4b4b4b;
+  font-family: 'YuGothic','Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', 'Meiryo','ＭＳ ゴシック',sans-serif;
+}
+
+.review-show-title{
+  font-size: 26px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.review-show-user{
+  text-align: end;
+  padding-right: 22px;
+}
+
+.review-show-a{
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.review-show-detail{
+  font-size: 16px;
+  margin-bottom: 5px;
+  padding: 10px 0;
+  color: gray; 
+}
+
+.review-show-star{
+  text-align: end;
+  font-size: 17px;
+  padding-right: 10px;
+}
