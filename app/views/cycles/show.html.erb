@@ -38,8 +38,39 @@
             </div>
           </div>
         </div>
-        <div class="review-area">
-        </div>
+
+
+
+
+        <ul class="review-area">
+          <% @review.each do |review| %>
+            <li class='review-list'>
+              <h3 class='review-title'>
+                <%= review.title %>
+              </h3>
+              <div class='review-user'>
+                User： <%= review.user.nickname %>
+              </div>
+              <div class='review-a'>
+                利用した地域： <%= review.area.name %>
+              </div>
+              <div class="review-detail">
+                <span><%= review.detail %></span>
+              </div>
+              <div class='review-star'>
+                <span>評価：<%= review.rate %>
+                  <%= 5.times do %>
+                    <%= image_tag "star-on.png", class:"review-star-icon" %>
+                  <% end %>
+                </span>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+
+
+
+
       </div>
     </div>
   </div>
