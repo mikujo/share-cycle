@@ -17,10 +17,9 @@ class ReviewsController < ApplicationController
     @cycle = Cycle.find(params[:cycle_id])
   end
 
-    private
+  private
 
-    def review_params
-      params.require(:review).permit(:title, :detail, :area_id, :rate).merge(user_id: current_user.id, cycle_id: params[:cycle_id])
-    end
-  
+  def review_params
+    params.require(:review).permit(:title, :detail, :area_id, :rate).merge(user_id: current_user.id, cycle_id: params[:cycle_id])
+  end
 end
