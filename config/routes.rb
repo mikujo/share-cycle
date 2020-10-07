@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   root to: "cycles#index"
   resources :users, only: [:edit, :update]
   resources :cycles do
-    resources :reviews, only: [:show, :new, :create, :edit, :update, :delete]
+    resources :reviews, only: [:show, :new, :create, :edit, :update, :destroy]
   end
 end

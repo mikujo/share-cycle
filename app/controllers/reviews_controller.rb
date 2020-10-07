@@ -1,5 +1,10 @@
 class ReviewsController < ApplicationController
-  before_action :set_cycle, only: [:new, :create, :show]
+  before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :set_cycle, only: [:new, :create, :show, :edit, :update]
+  before_action :set_review, only: [:show, :edit, :update, :destroy, :move_to_index]
+  before_action :move_to_index, only: [:edit, :destroy]
+
+
   def new
     @review = Review.new
   end
@@ -14,11 +19,37 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    @review = Review.find(params[:review_id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @review.update(review_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    if @review.destroy
+      redirect_to root_path
+    else
+      render :show
+    end
   end
 
   def set_cycle
     @cycle = Cycle.find(params[:cycle_id])
+  end
+
+  def set_review
+    @review = Review.find(params[:id])
+  end
+
+  def move_to_index
+    redirect_to root_path unless current_user.id == @review.user_id
   end
 
   private
