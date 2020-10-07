@@ -2,18 +2,13 @@
 
 <div class="cycle-main">
   <div class="left-side">
-    <div class='search-bar-contents'>
-      <form class="search-form" action="#">
-        <input class='input-box' placeholder='キーワードから探す'>
-        <button class="search-button">
-          <%= image_tag "search.png", class:"search-icon" %>
-        </button>
-      </form>
-    </div>
+
+    <%= render "shared/search" %>
+
     <div class='cycle-contents'>
       <div class="cycle-title">
         <h2><%= @cycle.name %></h2>
-        <h3 class="cycle-sub">画像をクリックで詳細ページへ</h3>
+        <h3 class="cycle-sub">コメントをクリックで詳細ページへ</h3>
       </div>
       <div class="bottom-content">
         <div class='cycle-area'>
@@ -41,27 +36,29 @@
         </div>
         <ul class="review-area">
           <% @review.each do |review| %>
-            <li class='review-list'>
-              <h3 class='review-title'>
-                <%= review.title %>
-              </h3>
-              <div class='review-user'>
-                User： <%= review.user.nickname %>
-              </div>
-              <div class='review-a'>
-                利用した地域： <%= review.area.name %>
-              </div>
-              <div class="review-detail">
-                <span><%= review.detail %></span>
-              </div>
-              <div class='review-star'>
-                <span>
-                  <%= image_tag "star-on.png" %>
-                  評価：<%= review.rate %>
-                  <%= image_tag "star-on.png" %>
-                </span>
-              </div>              
-            </li>
+            <%= link_to  cycle_review_path(cycle_id: review.cycle_id, review_id: review.id), class:"show_links" do %>
+              <li class='review-list'>
+                <h3 class='review-title'>
+                  <%= review.title %>
+                </h3>
+                <div class='review-user'>
+                  User： <%= review.user.nickname %>
+                </div>
+                <div class='review-a'>
+                  利用した地域： <%= review.area.name %>
+                </div>
+                <div class="review-detail">
+                  <span><%= review.detail %></span>
+                </div>
+                <div class='review-star'>
+                  <span>
+                    <%= image_tag "star-on.png" %>
+                    評価：<%= review.rate %>
+                    <%= image_tag "star-on.png" %>
+                  </span>
+                </div>              
+              </li>
+            <% end %>
           <% end %>
         </ul>
       </div>
@@ -103,6 +100,14 @@
           </div>
         </div>
       <% end %>
+      <div class="right-side-content">
+        <div class="cycle-link">
+          <%= link_to   new_cycle_review_path(@cycle), class: "cycle-new" do %>
+            <div class="cycle-new-title">レビュー投稿</div>
+            <div class="cycle-new-sub">こちらからサービスのレビューが行えます。</div>
+          <% end %>
+        </div>
+      </div>
     <% else %>
       <div class="right-side-content">
         <div class="cycle-link">
@@ -113,14 +118,7 @@
         </div>
       </div>
     <% end %>
-    <div class="right-side-content">
-        <div class="cycle-link">
-          <%= link_to   new_cycle_review_path(@cycle), class: "cycle-new" do %>
-            <div class="cycle-new-title">レビュー投稿</div>
-            <div class="cycle-new-sub">こちらからサービスのレビューが行えます。</div>
-          <% end %>
-        </div>
-      </div>
+    
   </div>
 </div>
 

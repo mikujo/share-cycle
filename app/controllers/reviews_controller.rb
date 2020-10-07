@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_cycle
+  before_action :set_cycle, only: [:new, :create, :show]
   def new
     @review = Review.new
   end
@@ -11,6 +11,10 @@ class ReviewsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @review = Review.find(params[:review_id])
   end
 
   def set_cycle
