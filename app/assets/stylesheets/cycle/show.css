@@ -85,3 +85,7 @@
   font-size: 15px;
   padding-right: 10px;
 }
+
+.show_links{
+  text-decoration: none;
+}
