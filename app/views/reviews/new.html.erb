@@ -30,39 +30,7 @@
         評価
         <span class="indispensable">必須</span>
       </div>
-
-      <p>jQuery稼働テスト</p>
-      <script type="text/javascript">
-        $(document).ready(function() {
-          $("p").text("jQuery稼働テスト(稼働中)");
-        });
-      </script>
-
-
-
-      <!-- 評価 -->
-      <div class="form-group row" id="star">
-        <%= f.label :rate,'評価', class:'col-md-3 col-form-label' %>
-        <%= f.hidden_field :rate, id: :review_star %>
-      </div>
-
-      <!-- 評価javascript -->
-      <script>
-        $('#star').raty({
-          size     : 36,
-          starOff:  '<%= asset_path('star-off.png') %>',
-          starOn : '<%= asset_path('star-on.png') %>',
-          starHalf: '<%= asset_path('star-half.png') %>',
-          scoreName: 'review[rate]',
-          half: true,
-        });
-      </script>  
-
-
-
-
-
-
+      <%= f.text_field :rate, class:"price-input", id:"item-price", placeholder:"例）2.0" %>
 
     </div>
 

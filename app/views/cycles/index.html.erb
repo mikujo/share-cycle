@@ -41,11 +41,12 @@
               <div class='cycle-price'>
                 <span> 利用料(1時間あたり)： <%= cycle.price %> 円 </span>
               </div>
-              <div class='star-btn'>
-                <%= 5.times do %>
-                  <%= image_tag "star.png", class:"star-icon" %>
-                <% end %>
-                <span class='star-count'>.0</span>
+              <div class='review-star-index'>
+                <span>
+                  <%= image_tag "star-on.png" %>
+                  平均評価：<%= cycle.reviews.average(:rate).round(1) %>
+                  <%= image_tag "star-on.png" %>
+                </span>
               </div>
             </div>
           </li>

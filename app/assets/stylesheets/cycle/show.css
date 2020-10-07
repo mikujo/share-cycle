@@ -1,6 +1,5 @@
 .bottom-content{
-  background-color: lightcoral;
-  height: 1000px;
+  height: 1100px;
   width: 100%;
   display: flex;
   padding: 15px;
@@ -44,24 +43,45 @@
   margin-bottom: 5px;
 }
 
-.star-btn {
-  display: flex;
-  align-items: center;
-}
-
-.star-icon {
-  height: 15px;
-  width: 15px;
-  margin-right: 5px;
-}
-
-.star-count {
-  font-size: 15px;
-}
-
 .review-area{
-  background-color: lightgreen;
   width: 59%;
-  height: 200px;
   margin-left: 10px;
+  height: 500px;
+}
+
+.review-list{
+  border: 1px solid lightgray;
+  margin-bottom: 20px;
+  padding: 3px 10px;
+  color: #4b4b4b;
+  font-family: 'YuGothic','Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', 'Meiryo','ＭＳ ゴシック',sans-serif;
+}
+
+.review-title{
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.review-user{
+  text-align: end;
+  padding-right: 20px;
+}
+
+.review-a{
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.review-detail{
+  font-size: 14px;
+  margin-bottom: 5px;
+  padding: 10px 0;
+  color: gray; 
+}
+
+.review-star{
+  text-align: end;
+  font-size: 15px;
+  padding-right: 10px;
 }
