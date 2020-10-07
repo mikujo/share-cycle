@@ -9,7 +9,6 @@
       <div class="cycle-title">
         <h2><%= @cycle.name %></h2>
       </div>
-
       <div class='review-show-list'>
         <h3 class='review-show-title'>
           <%= @review.title %>
@@ -33,7 +32,6 @@
       </div>
     </div>
   </div>
-
   <div class="right-side">
     <% if user_signed_in? %>
       <div class="right-side-content">
@@ -44,15 +42,13 @@
           <% end %>
         </div>
       </div>
-      <%# if current_user.admin? %>
+      <% if current_user.id == @review.user_id %>
         <div class="right-side-content">
           <div class="cycle-link">
             <%= link_to edit_cycle_review_path(id: @review.id), class: "cycle-new" do %>
               <div class="cycle-new-title">レビュー編集</div>
               <div class="cycle-new-sub">こちらからレビューの編集ができます。</div>
             <% end %>
-
-
           </div>
         </div>
         <div class="right-side-content">
@@ -63,7 +59,7 @@
             <% end %>
           </div>
         </div>
-      <%# end %>
+      <% end %>
     <% else %>
       <div class="right-side-content">
         <div class="cycle-link">
@@ -74,7 +70,6 @@
         </div>
       </div>
     <% end %>
-    
   </div>
 </div>
 
