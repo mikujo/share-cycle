@@ -36,7 +36,7 @@
         </div>
         <ul class="review-area">
           <% @review.each do |review| %>
-            <%= link_to  cycle_review_path(cycle_id: review.cycle_id, review_id: review.id), class:"show_links" do %>
+            <%= link_to  cycle_review_path(cycle_id: review.cycle_id, id: review.id), class:"show_links" do %>
               <li class='review-list'>
                 <h3 class='review-title'>
                   <%= review.title %>
@@ -102,7 +102,7 @@
       <% end %>
       <div class="right-side-content">
         <div class="cycle-link">
-          <%= link_to   new_cycle_review_path(@cycle), class: "cycle-new" do %>
+          <%= link_to new_cycle_review_path(@cycle), class: "cycle-new" do %>
             <div class="cycle-new-title">レビュー投稿</div>
             <div class="cycle-new-sub">こちらからサービスのレビューが行えます。</div>
           <% end %>
