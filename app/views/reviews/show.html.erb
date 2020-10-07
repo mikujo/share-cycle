@@ -44,24 +44,26 @@
           <% end %>
         </div>
       </div>
-      <% if current_user.admin? %>
+      <%# if current_user.admin? %>
         <div class="right-side-content">
           <div class="cycle-link">
-            <%= link_to edit_cycle_path, class: "cycle-new" do %>
-              <div class="cycle-new-title">サービス編集</div>
-              <div class="cycle-new-sub">こちらからサービスの編集ができます。</div>
+            <%= link_to edit_cycle_review_path(id: @review.id), class: "cycle-new" do %>
+              <div class="cycle-new-title">レビュー編集</div>
+              <div class="cycle-new-sub">こちらからレビューの編集ができます。</div>
             <% end %>
+
+
           </div>
         </div>
         <div class="right-side-content">
           <div class="cycle-link">
-            <%= link_to cycle_path(@cycle.id), method: :delete, class: "cycle-new" do %>
-              <div class="cycle-new-title">サービス削除</div>
-              <div class="cycle-new-sub">こちらからサービスの削除ができます。</div>
+            <%= link_to cycle_review_path(id: @review.id), method: :delete, class: "cycle-new" do %>
+              <div class="cycle-new-title">レビュー削除</div>
+              <div class="cycle-new-sub">こちらからレビューの削除ができます。</div>
             <% end %>
           </div>
         </div>
-      <% end %>
+      <%# end %>
     <% else %>
       <div class="right-side-content">
         <div class="cycle-link">
