@@ -31,11 +31,22 @@
               <span> 利用料(1時間あたり)： <%= @cycle.price %> 円 </span>
             </div>
             <div class='review-star'>
-              <span>
-                <%= image_tag "star-on.png" %>
-                平均評価：<%= @cycle.reviews.average(:rate).round(1) %>
-                <%= image_tag "star-on.png" %>
-              </span>
+              <% if @cycle.reviews.average(:rate) %>
+                <% i = @cycle.reviews.average(:rate).round %>
+                <span>
+                  平均評価：<%= @cycle.reviews.average(:rate).round(1) %>
+                  <% i.times do %>
+                    <%= image_tag "star-on.png" %>
+                  <% end %>
+                  <% (5-i).times do %>
+                    <%= image_tag "star-off.png" %>
+                  <% end %>
+                </span>
+              <% else %>
+                <span>
+                  評価がありません
+                </span>
+              <% end %>
             </div>
           </div>
         </div>
@@ -56,11 +67,22 @@
                   <span><%= review.detail %></span>
                 </div>
                 <div class='review-star'>
+                <% if review.rate %>
+                  <% i = review.rate.round %>
                   <span>
-                    <%= image_tag "star-on.png" %>
                     評価：<%= review.rate %>
-                    <%= image_tag "star-on.png" %>
+                    <% i.times do %>
+                      <%= image_tag "star-on.png" %>
+                    <% end %>
+                    <% (5-i).times do %>
+                      <%= image_tag "star-off.png" %>
+                    <% end %>
                   </span>
+                <% else %>
+                  <span>
+                    評価がありません
+                  </span>
+                <% end %>
                 </div>              
               </li>
             <% end %>
