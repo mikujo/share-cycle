@@ -1,0 +1,62 @@
+<%= render "shared/header" %>
+
+<div class="cycle-main">
+  <div class="left-side">
+
+    <div class='cycle-contents'>
+      <ul class="search-review-area">
+        <% @reviews.each do |review| %>
+          <%= link_to  cycle_review_path(cycle_id: review.cycle_id, id: review.id), class:"search-links" do %>
+            <li class='search-show-list'>
+              <h3 class='review-show-title'>
+                <%= review.title %>
+              </h3>
+              <div class="search-cycle-title">
+                <h2><%= @cycle.name %></h2>
+              </div>
+              <div class='review-show-user'>
+                User： <%= review.user.nickname %>
+              </div>
+              <div class='review-show-a'>
+                利用した地域： <%= review.area.name %>
+              </div>
+              <div class="review-show-detail">
+                <span><%= review.detail %></span>
+              </div>
+              <div class='review-show-star'>
+                <span>
+                  <%= image_tag "star-on.png" %>
+                  評価：<%= review.rate %>
+                  <%= image_tag "star-on.png" %>
+                </span>
+              </div>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="right-side">
+    <% if user_signed_in? %>
+      <div class="right-side-content">
+        <div class="cycle-link">
+          <%= link_to edit_user_registration_path(current_user), class: "cycle-new" do %>
+            <div class="cycle-new-title">ようこそ<br><%= current_user.nickname %>さん</div>
+            <div class="cycle-new-sub">こちらから登録情報の編集ができます。</div>
+          <% end %>
+        </div>
+      </div>
+    <% else %>
+      <div class="right-side-content">
+        <div class="cycle-link">
+          <%= link_to  user_guest_sign_in_path, method: :post, class: "cycle-new" do %>
+            <div class="cycle-new-title">ゲストユーザーログイン</div>
+            <div class="cycle-new-sub">会員登録不要でご利用いただけます。</div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= render "shared/footer" %>
