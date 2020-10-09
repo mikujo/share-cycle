@@ -89,30 +89,3 @@
 .show-links{
   text-decoration: none;
 }
-
-.search-review-area{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 50px 0;
-}
-
-.search-links{
-  text-decoration: none;
-  width: 100%;
-  margin-bottom: 30px;
-}
-
-.search-show-list{
-  width: 100%;
-  border: 1px solid lightgray;
-  padding: 10px;
-  color: #4b4b4b;
-  font-family: 'YuGothic','Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', 'Meiryo','ＭＳ ゴシック',sans-serif;
-}
-
-.search-cycle-title{
-  width: 90%;
-  font-size: 20px;
-  padding: 10px 0;
-}
