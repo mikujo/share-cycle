@@ -22,18 +22,18 @@
 }
 
 .search-form>.input-box {
-  width: 100%;
+  width: 90%;
   height: 7vh;
   padding-left: 10px;
 }
 
 .search-button {
-  width: 7vh;
-  border: 0;
+  width: 10%;
   cursor: pointer;
   background-color: rgb(189, 185, 185);
   padding: 8px;
   border: solid 1px gray;
+  color: white;
 }
 
 .search-icon {
