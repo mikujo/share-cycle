@@ -5,7 +5,7 @@
 
     <div class='search-bar-contents'>
       <%= form_with(url:  search_cycle_reviews_path(cycle_id: @cycle.id), local: true, method: :get, class: "search-form") do |f| %>
-        <%= f.text_field :keyword, placeholder: "キーワードから探す", class: "input-box" %>
+        <%= f.text_field :keyword, placeholder: "キーワードからレビューを探す", class: "input-box" %>
         <%= f.submit '検索', class: "search-button" %>
       <% end %>
     </div>
