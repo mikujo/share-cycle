@@ -13,13 +13,13 @@
         タイトル
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"サービス名を入力", maxlength:"40" %>
+      <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"タイトルを入力", maxlength:"40" %>
       <div class="items-explain">
         <div class="weight-bold-text">
           レビュー内容
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :detail, class:"items-text", id:"item-info", placeholder:"実際にご利用いただいたご感想をご入力ください。（必須 1,000文字まで）例)簡単に利用できて感動しました。目的地まで気持ちよく移動ができて楽しかった！" ,rows:"7" ,maxlength:"1000" %>
+        <%= f.text_area :detail, class:"items-text", id:"item-info", placeholder:"実際にご利用いただいたご感想をご入力ください。(1,000文字まで) 例)簡単に利用できて感動しました。目的地まで気持ちよく移動ができて楽しかった！" ,rows:"7" ,maxlength:"1000" %>
       </div>
       <div class="weight-bold-text">
         利用した地域
@@ -27,7 +27,7 @@
       </div>
       <%= f.collection_select(:area_id, Area.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
       <div class="weight-bold-text">
-        評価
+        評価<span>(1~5)</span>
         <span class="indispensable">必須</span>
       </div>
       <%= f.text_field :rate, class:"price-input", id:"item-price", placeholder:"例）2.0" %>
@@ -36,7 +36,7 @@
 
     <div class="sell-btn-contents">
       <%= f.submit "レビューを投稿する" ,class:"sell-btn" %>
-      <%=link_to 'もどる', root_path, class:"back-btn" %>
+      <%=link_to 'トップへもどる', root_path, class:"back-btn" %>
     </div>
   </div>
   <% end %>
