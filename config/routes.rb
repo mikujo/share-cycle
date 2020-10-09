@@ -7,8 +7,11 @@ Rails.application.routes.draw do
     post 'user/guest_sign_in', to: 'users/sessions#new_guest'
   end
   root to: "cycles#index"
-  resources :users, only: [:edit, :update]
   resources :cycles do
-    resources :reviews, only: [:show, :new, :create, :edit, :update, :destroy]
+    resources :reviews, only: [:show, :new, :create, :edit, :update, :destroy] do
+      collection do
+        get 'search'
+      end
+    end
   end
 end

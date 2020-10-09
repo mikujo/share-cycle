@@ -3,7 +3,12 @@
 <div class="cycle-main">
   <div class="left-side">
 
-    <%= render "shared/search" %>
+    <div class='search-bar-contents'>
+      <%= form_with(url:  search_cycle_reviews_path(cycle_id: @cycle.id), local: true, method: :get, class: "search-form") do |f| %>
+        <%= f.text_field :keyword, placeholder: "キーワードから探す", class: "input-box" %>
+        <%= f.submit '検索', class: "search-button" %>
+      <% end %>
+    </div>
 
     <div class='cycle-contents'>
       <div class="cycle-title">
@@ -36,7 +41,7 @@
         </div>
         <ul class="review-area">
           <% @review.each do |review| %>
-            <%= link_to  cycle_review_path(cycle_id: review.cycle_id, id: review.id), class:"show_links" do %>
+            <%= link_to  cycle_review_path(cycle_id: review.cycle_id, id: review.id), class:"show-links" do %>
               <li class='review-list'>
                 <h3 class='review-title'>
                   <%= review.title %>
@@ -100,14 +105,6 @@
           </div>
         </div>
       <% end %>
-      <div class="right-side-content">
-        <div class="cycle-link">
-          <%= link_to new_cycle_review_path(@cycle), class: "cycle-new" do %>
-            <div class="cycle-new-title">レビュー投稿</div>
-            <div class="cycle-new-sub">こちらからサービスのレビューが行えます。</div>
-          <% end %>
-        </div>
-      </div>
     <% else %>
       <div class="right-side-content">
         <div class="cycle-link">
@@ -118,7 +115,14 @@
         </div>
       </div>
     <% end %>
-    
+    <div class="right-side-content">
+      <div class="cycle-link">
+        <%= link_to new_cycle_review_path(@cycle), class: "cycle-new" do %>
+          <div class="cycle-new-title">レビュー投稿</div>
+          <div class="cycle-new-sub">こちらからサービスのレビューが行えます。</div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
 

@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
-  before_action :set_cycle, only: [:new, :create, :show, :edit, :update]
+  before_action :set_cycle, only: [:new, :create, :show, :edit, :update, :search]
   before_action :set_review, only: [:show, :edit, :update, :destroy, :move_to_index]
   before_action :move_to_index, only: [:edit, :destroy]
 
@@ -38,6 +38,10 @@ class ReviewsController < ApplicationController
     else
       render :show
     end
+  end
+
+  def search
+    @reviews = Review.search(params[:keyword])
   end
 
   def set_cycle
