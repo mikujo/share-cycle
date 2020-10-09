@@ -4,7 +4,6 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy, :move_to_index]
   before_action :move_to_index, only: [:edit, :destroy]
 
-
   def new
     @review = Review.new
   end

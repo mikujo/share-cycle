@@ -14,7 +14,7 @@ class Review < ApplicationRecord
   validates :area_id, numericality: { other_than: 1 }
 
   def self.search(search)
-    if search != ""
+    if search != ''
       Review.where(['detail LIKE(?)', "%#{search}%"])
     else
       Review.all
