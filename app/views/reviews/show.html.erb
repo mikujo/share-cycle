@@ -4,7 +4,7 @@
   <div class="left-side">
     <div class='review-cycle-contents'>
       <div class="cycle-title">
-        <h2><%= @cycle.name %></h2>
+        <%= @cycle.name %>
       </div>
       <div class='review-show-list'>
         <h3 class='review-show-title'>
@@ -39,26 +39,27 @@
         </div>
       </div>
 
-      <div class="container">
+      <ul class="comment-container">
+        <p class="comment-title">＜コメント一覧＞</p>
+        <% if @comments %>
+          <% @comments.each do |comment| %>
+            <li class="comment-list">
+              <%= comment.user.nickname %>： <%= comment.text %>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+      <div class="comment-area">
         <% if user_signed_in? %>
-          <%= form_with model: [@cycle, @review, @comment], local: true do |f| %>
-            <%= f.text_area :text, placeholder: "コメントを入力", rows: "2" %>
-            <%= f.submit "コメントする" %>
+          <%= form_with model: [@cycle, @review, @comment], class: "comment-form",local: true do |f| %>
+            <%= f.text_area :text, placeholder: "コメントを入力", rows: "2", class: "comment-box" %>
+            <%= f.submit "コメントする", class: "comment-button" %>
           <% end %>
         <% else %>
-          <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+          <div class="commment-rogin">
+            ※※※ ログインをするとコメントの投稿ができます ※※※
+          </div>
         <% end %>
-        <div class="comments">
-          <h4>＜コメント一覧＞</h4>
-          <% if @comments %>
-            <% @comments.each do |comment| %>
-              <p>
-                <strong><%= link_to comment.user.nickname, "#" %>：</strong>
-                <%= comment.text %>
-              </p>
-            <% end %>
-          <% end %>
-        </div>
       </div>
 
 
