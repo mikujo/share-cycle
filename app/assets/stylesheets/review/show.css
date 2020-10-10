@@ -7,7 +7,7 @@
 
 .review-show-list{
   width: 70%;
-  margin: 100px 0;
+  margin: 100px 0 50px;
   border: 1px solid lightgray;
   padding: 10px;
   color: #4b4b4b;
@@ -41,4 +41,62 @@
   text-align: end;
   font-size: 17px;
   padding-right: 10px;
+}
+
+.comment-container{
+  width: 70%;
+  color: #4b4b4b;
+  padding: 10px;
+}
+
+.comment-title{
+  font-size: 20px;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+}
+
+.comment-list{
+  padding: 10px 50px;
+  font-size: 18px;
+}
+
+.comment-area{
+  width: 80%;
+  margin: 40px 0;
+}
+
+.search-bar-contents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 3px 3px 10px 3px;
+}
+
+.comment-form {
+  width: 100%;
+  height: 7vh;
+  display: flex;
+}
+
+.comment-box {
+  width: 80%;
+  height: 7vh;
+  padding: 10px;
+}
+
+.comment-button {
+  width: 20%;
+  cursor: pointer;
+  background-color: rgb(189, 185, 185);
+  padding: 8px;
+  border: solid 1px gray;
+  color: white;
+}
+
+.commment-rogin{
+  text-align: center;
+  color: gray;
+  font-size: 20px;
+  margin: 20px;
 }

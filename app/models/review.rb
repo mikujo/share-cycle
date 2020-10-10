@@ -1,6 +1,7 @@
 class Review < ApplicationRecord
   belongs_to :cycle
   belongs_to :user
+  has_many :comments
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :area

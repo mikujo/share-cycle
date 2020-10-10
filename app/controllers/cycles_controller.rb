@@ -22,7 +22,7 @@ class CyclesController < ApplicationController
 
   def show
     reviews = Review.all
-    @review = @cycle.reviews.order('created_at DESC').limit(5)
+    @review = @cycle.reviews.includes(:user).order('created_at DESC').limit(5)
   end
 
   def edit
