@@ -18,6 +18,8 @@ class ReviewsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @review.comments.includes(:user)
   end
 
   def edit
