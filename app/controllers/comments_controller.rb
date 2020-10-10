@@ -34,7 +34,6 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
   end
 
-
   def move_to_index
     redirect_to root_path unless current_user.id == @comment.user_id
   end
