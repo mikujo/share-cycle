@@ -5,7 +5,7 @@
 
     <div class='search-bar-contents'>
       <%= form_with(url:  search_cycle_reviews_path(cycle_id: @cycle.id), local: true, method: :get, class: "search-form") do |f| %>
-        <%= f.text_field :keyword, placeholder: "キーワードから探す", class: "input-box" %>
+        <%= f.text_field :keyword, placeholder: "キーワードからレビューを探す", class: "input-box" %>
         <%= f.submit '検索', class: "search-button" %>
       <% end %>
     </div>
@@ -31,11 +31,22 @@
               <span> 利用料(1時間あたり)： <%= @cycle.price %> 円 </span>
             </div>
             <div class='review-star'>
-              <span>
-                <%= image_tag "star-on.png" %>
-                平均評価：<%= @cycle.reviews.average(:rate).round(1) %>
-                <%= image_tag "star-on.png" %>
-              </span>
+              <% if @cycle.reviews.average(:rate) %>
+                <% i = @cycle.reviews.average(:rate).round %>
+                <span>
+                  平均評価：<%= @cycle.reviews.average(:rate).round(1) %>
+                  <% i.times do %>
+                    <%= image_tag "star-on.png" %>
+                  <% end %>
+                  <% (5-i).times do %>
+                    <%= image_tag "star-off.png" %>
+                  <% end %>
+                </span>
+              <% else %>
+                <span>
+                  評価がありません
+                </span>
+              <% end %>
             </div>
           </div>
         </div>
@@ -56,11 +67,22 @@
                   <span><%= review.detail %></span>
                 </div>
                 <div class='review-star'>
+                <% if review.rate %>
+                  <% i = review.rate.round %>
                   <span>
-                    <%= image_tag "star-on.png" %>
                     評価：<%= review.rate %>
-                    <%= image_tag "star-on.png" %>
+                    <% i.times do %>
+                      <%= image_tag "star-on.png" %>
+                    <% end %>
+                    <% (5-i).times do %>
+                      <%= image_tag "star-off.png" %>
+                    <% end %>
                   </span>
+                <% else %>
+                  <span>
+                    評価がありません
+                  </span>
+                <% end %>
                 </div>              
               </li>
             <% end %>
@@ -108,7 +130,7 @@
     <% else %>
       <div class="right-side-content">
         <div class="cycle-link">
-          <%= link_to  user_guest_sign_in_path, method: :post, class: "cycle-new" do %>
+          <%= link_to user_guest_sign_in_path, method: :post, class: "cycle-new" do %>
             <div class="cycle-new-title">ゲストユーザーログイン</div>
             <div class="cycle-new-sub">会員登録不要でご利用いただけます。</div>
           <% end %>

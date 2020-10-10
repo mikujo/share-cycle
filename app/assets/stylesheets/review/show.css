@@ -1,3 +1,10 @@
+.review-cycle-contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
 .review-show-list{
   width: 70%;
   margin: 100px 0;
