@@ -59,6 +59,8 @@
 .comment-list{
   padding: 10px 50px;
   font-size: 18px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .comment-area{
@@ -99,4 +101,11 @@
   color: gray;
   font-size: 20px;
   margin: 20px;
+}
+
+.comment-destroy{
+  text-decoration: none;
+  border: 1px solid lightgray;
+  padding: 5px;
+  color: #4b4b4b;
 }

@@ -38,13 +38,19 @@
           <% end %>
         </div>
       </div>
-
       <ul class="comment-container">
         <p class="comment-title">＜コメント一覧＞</p>
         <% if @comments %>
           <% @comments.each do |comment| %>
             <li class="comment-list">
-              <%= comment.user.nickname %>： <%= comment.text %>
+              <div>
+                <%= comment.user.nickname %>： <%= comment.text %>
+              </div>
+              <% if user_signed_in? && current_user.id == comment.user_id %>
+                <div >
+                  <%= link_to '削除', cycle_review_comment_path(review_id: @review.id, id: comment.id), method: :delete, class: "comment-destroy" %>
+                </div>
+              <% end %>
             </li>
           <% end %>
         <% end %>
@@ -61,15 +67,6 @@
           </div>
         <% end %>
       </div>
-
-
-
-
-
-
-
-
-
     </div>
   </div>
   <div class="right-side">
