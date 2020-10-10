@@ -1,6 +1,6 @@
 class Cycle < ApplicationRecord
   has_one_attached :image
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   with_options presence: true do
     validates :image
