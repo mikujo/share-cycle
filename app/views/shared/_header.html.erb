@@ -15,8 +15,8 @@
           </ul>
           <li class="user-nickname" id="lists"><%= current_user.nickname %></li>
         <% else %>
-          <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-          <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+          <li><%= link_to 'ログイン', new_user_session_path, class: "login", id: "login" %></li>
+          <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up", id: "sign-up" %></li>
         <% end %>
       </ul>
     </div>
