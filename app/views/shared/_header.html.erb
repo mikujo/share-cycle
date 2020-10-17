@@ -9,7 +9,7 @@
     <div class='nav'>
       <ul class='lists-right'>
         <% if user_signed_in? %>
-          <ul class="js-lists">
+          <ul class="js-lists" id="pull-down">
             <li class="js-content"><%= link_to '編集', edit_user_registration_path(current_user), class: "js-link" %></li>
             <li class="js-content"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "js-link" %></li>
           </ul>
