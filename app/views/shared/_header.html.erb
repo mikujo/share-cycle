@@ -9,8 +9,11 @@
     <div class='nav'>
       <ul class='lists-right'>
         <% if user_signed_in? %>
-          <li><%= link_to current_user.nickname, edit_user_registration_path(current_user), class: "user-nickname" %></li>
-          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+          <ul class="js-lists">
+            <li class="js-content"><%= link_to '編集', edit_user_registration_path(current_user), class: "js-link" %></li>
+            <li class="js-content"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "js-link" %></li>
+          </ul>
+          <li class="user-nickname" id="lists"><%= current_user.nickname %></li>
         <% else %>
           <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
           <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
