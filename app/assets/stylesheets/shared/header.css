@@ -55,19 +55,23 @@
 }
 
 .user-nickname {
+  width: 170px;
+  text-align: center;
   text-decoration: none;
   color: whitesmoke;
+  padding: 7px 5px;
 }
 
 .js-lists{
   position: absolute;
-  top: 40px;
-  right: 5px;
+  top: 45px;
+  right: 30px;
   background-color: whitesmoke;
   border-top: #4b4b4b 1px solid;
   border-left: #4b4b4b 1px solid;
   border-right: #4b4b4b 1px solid;
   width: 120px;
+  display: none;
 }
 
 .js-content {
@@ -86,11 +90,15 @@
   text-decoration: none;
   margin-right: 3vw;
   color: whitesmoke;
+  border: 1px solid white;
+  padding: 7px 10px;
 }
 
 .sign-up {
   text-decoration: none;
   color: whitesmoke;
+  border: 1px solid white;
+  padding: 7px 10px;
 }
 
 .header-center{
