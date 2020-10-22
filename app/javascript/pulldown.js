@@ -1,5 +1,5 @@
 function pullDown(){
-
+  
   const pullDownButton = document.getElementById("lists")
   const pullDownContent = document.getElementById("pull-down")
 
@@ -19,5 +19,4 @@ function pullDown(){
   })
 
 }
-
 window.addEventListener('load', pullDown)
