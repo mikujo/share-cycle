@@ -44,5 +44,5 @@ Ruby on Rails で制作したアプリです。
 https://github.com/mikujo/share-cycle/issues
 
 ## DB設計
-ER図は下記からご確認いただけます。  
+ER図は下記からご確認いただけます。   
 https://gyazo.com/2b4f8588454305b0cf692bc84d5d7caf
