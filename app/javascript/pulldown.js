@@ -17,7 +17,6 @@ function pullDown(){
       pullDownContent.setAttribute("style", "display:block;")
     }
   })
-
 }
 
 window.addEventListener('load', pullDown)
