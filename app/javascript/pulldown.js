@@ -19,4 +19,5 @@ function pullDown(){
   })
 
 }
+
 window.addEventListener('load', pullDown)
